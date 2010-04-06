@@ -36,7 +36,13 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1/edit
   def edit
     @bookmark = Bookmark.find(params[:id])
-    @tags = "some text - testing"
+    @association = Marktags.find(:all, :conditions => ["bookmark_id = ?",@bookmark.id])
+    @tags = []
+    @association.each do |assoc|
+      thistag = Tags.find(assoc.tag_id)
+      @tags.push thistag.name
+    end
+    @tags = @tags.join(",")
   end
 
   # POST /bookmarks
@@ -61,9 +67,31 @@ class BookmarksController < ApplicationController
   def update
     @bookmark = Bookmark.find(params[:id])
 
+    tagsString = params[:bookmark_tags]
+    @tagsResponse = "<br/>";
+
+    Marktags.delete_all(["bookmark_id = ?", @bookmark.id])
+
+    if (tagsString.length > 0)
+      @tagsArr = tagsString.split(',');
+      @tagsArr.each do |tag|
+        if (Tags.find_by_name(tag))
+          @tagID = Tags.find_by_name(tag).id
+        else
+          @aTag = Tags.new(:name => tag)
+          @aTag.save
+          @tagID = @aTag.id
+        end
+        
+        Marktags.new(:bookmark_id => @bookmark.id, :tag_id => @tagID).save
+        
+        @tagsResponse += "bookmark:"+@bookmark.id.to_s+"->"+@tagID.to_s+"<br/>"
+      end
+    end  
+
     respond_to do |format|
       if @bookmark.update_attributes(params[:bookmark])
-        flash[:notice] = 'Bookmark was successfully updated.'
+        flash[:notice] = 'Bookmark was successfully updated.'+@tagsResponse
         format.html { redirect_to(@bookmark) }
         format.xml  { head :ok }
       else
