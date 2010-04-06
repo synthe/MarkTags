@@ -1,0 +1,59 @@
+
+
+Processing BookmarksController#index (for 127.0.0.1 at 2010-04-06 13:19:14) [GET]
+  [4;36;1mBookmark Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: bookmarks: SELECT * FROM "bookmarks" [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: bookmarks: SELECT * FROM "bookmarks" ):
+  app/controllers/bookmarks_controller.rb:5:in `index'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (39.9ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (114.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (66.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBookmarks (20100406181822)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCREATE TABLE "bookmarks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "url" varchar(255), "author" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100406181822')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("bookmarks")[0m
+
+
+Processing BookmarksController#index (for 127.0.0.1 at 2010-04-06 13:19:33) [GET]
+  [4;35;1mBookmark Load (1.4ms)[0m   [0mSELECT * FROM "bookmarks" [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/index
+Completed in 149ms (View: 91, DB: 1) | 200 OK [http://localhost/bookmarks]
+
+
+Processing BookmarksController#new (for 127.0.0.1 at 2010-04-06 13:19:35) [GET]
+Rendering template within layouts/bookmarks
+Rendering bookmarks/new
+Completed in 18ms (View: 12, DB: 0) | 200 OK [http://localhost/bookmarks/new]
