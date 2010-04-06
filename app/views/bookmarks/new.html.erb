@@ -20,6 +20,10 @@
     <%= f.text_field :author %>
   </p>
   <p>
+  <p>
+    <%= f.label "tags (separated by commas)" %><br />
+    <input type="text" id="bookmark_tags" name="bookmark_tags" value="" size="50"/>
+  </p>
   </p>
   <p>
     <%= f.submit 'Create' %>

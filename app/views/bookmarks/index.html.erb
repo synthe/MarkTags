@@ -6,6 +6,7 @@
     <th>Description</th>
     <th>Url</th>
     <th>Author</th>
+    <th>Tags</th>
   </tr>
 
 <% @bookmarks.each do |bookmark| %>
@@ -14,6 +15,7 @@
     <td><%=h bookmark.description %></td>
     <td><%=h bookmark.url %></td>
     <td><%=h bookmark.author %></td>
+    <td><%=h tags_to_string(bookmark.id) %></td>
     <td><%= link_to 'Show', bookmark %></td>
     <td><%= link_to 'Edit', edit_bookmark_path(bookmark) %></td>
     <td><%= link_to 'Destroy', bookmark, :confirm => 'Are you sure?', :method => :delete %></td>

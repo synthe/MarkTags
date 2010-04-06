@@ -24,8 +24,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/new
   # GET /bookmarks/new.xml
   def new
-    @bookmark = Bookmark.new
-    
+    @bookmark = Bookmark.new 
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,22 +35,27 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1/edit
   def edit
     @bookmark = Bookmark.find(params[:id])
-    @association = Marktags.find(:all, :conditions => ["bookmark_id = ?",@bookmark.id])
-    @tags = []
-    @association.each do |assoc|
-      thistag = Tags.find(assoc.tag_id)
-      @tags.push thistag.name
-    end
-    @tags = @tags.join(",")
+    
+    #@association = Marktags.find(:all, :conditions => ["bookmark_id = ?",@bookmark.id])
+    #@tags = []
+    #@association.each do |assoc|
+    #  thistag = Tags.find(assoc.tag_id)
+    #  @tags.push thistag.name
+    #end
+    #@tags = @tags.join(",")
   end
 
   # POST /bookmarks
   # POST /bookmarks.xml
   def create
     @bookmark = Bookmark.new(params[:bookmark])
+    
 
     respond_to do |format|
       if @bookmark.save
+        tagsString = params[:bookmark_tags]
+        save_tagstring_to_tags(tagsString, @bookmark.id)
+
         flash[:notice] = 'Bookmark was successfully created.'
         format.html { redirect_to(@bookmark) }
         format.xml  { render :xml => @bookmark, :status => :created, :location => @bookmark }
@@ -68,30 +72,29 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
 
     tagsString = params[:bookmark_tags]
-    @tagsResponse = "<br/>";
 
-    Marktags.delete_all(["bookmark_id = ?", @bookmark.id])
+    save_tagstring_to_tags(tagsString, @bookmark.id)
 
-    if (tagsString.length > 0)
-      @tagsArr = tagsString.split(',');
-      @tagsArr.each do |tag|
-        if (Tags.find_by_name(tag))
-          @tagID = Tags.find_by_name(tag).id
-        else
-          @aTag = Tags.new(:name => tag)
-          @aTag.save
-          @tagID = @aTag.id
-        end
-        
-        Marktags.new(:bookmark_id => @bookmark.id, :tag_id => @tagID).save
-        
-        @tagsResponse += "bookmark:"+@bookmark.id.to_s+"->"+@tagID.to_s+"<br/>"
-      end
-    end  
+    #Marktags.delete_all(["bookmark_id = ?", @bookmark.id])
+    #if (tagsString.length > 0)
+    #  @tagsArr = tagsString.split(',');
+    #  @tagsArr.each do |tag|
+    #    if (Tags.find_by_name(tag))
+    #      @tagID = Tags.find_by_name(tag).id
+    #    else
+    #      @aTag = Tags.new(:name => tag)
+    #      @aTag.save
+    #      @tagID = @aTag.id
+    #    end
+    #    
+    #    Marktags.new(:bookmark_id => @bookmark.id, :tag_id => @tagID).save
+    #    
+    #  end
+    #end  
 
     respond_to do |format|
       if @bookmark.update_attributes(params[:bookmark])
-        flash[:notice] = 'Bookmark was successfully updated.'+@tagsResponse
+        flash[:notice] = 'Bookmark was successfully updated.'
         format.html { redirect_to(@bookmark) }
         format.xml  { head :ok }
       else
@@ -106,6 +109,8 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
+    
+    Marktags.delete_all(["bookmark_id = ?", params[:id]])
 
     respond_to do |format|
       format.html { redirect_to(bookmarks_url) }

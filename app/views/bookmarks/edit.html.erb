@@ -20,8 +20,8 @@
     <%= f.text_field :author %>
   </p>
   <p>
-    <%= f.label "tags" %><br />
-    <input type="text" id="bookmark_tags" name="bookmark_tags" value="<%= @tags %>" size="50"/>
+    <%= f.label "tags (separated by commas)" %><br />
+    <input type="text" id="bookmark_tags" name="bookmark_tags" value="<%= tags_to_string(@bookmark.id) %>" size="50"/>
   </p>
   
   <p>

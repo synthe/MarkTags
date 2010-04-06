@@ -3592,3 +3592,466 @@ Processing BookmarksController#edit (for 127.0.0.1 at 2010-04-06 16:08:18) [GET]
 Rendering template within layouts/bookmarks
 Rendering bookmarks/edit
 Completed in 42ms (View: 8, DB: 1) | 200 OK [http://localhost/bookmarks/1/edit]
+
+
+Processing BookmarksController#edit (for 127.0.0.1 at 2010-04-06 16:13:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mBookmark Load (0.4ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+  [4;35;1mMarktags Load (0.3ms)[0m   [0mSELECT * FROM "marktags" WHERE (bookmark_id = 1) [0m
+  [4;36;1mTags Load (0.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 5) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/edit
+Completed in 33ms (View: 12, DB: 1) | 200 OK [http://localhost/bookmarks/1/edit]
+
+
+Processing BookmarksController#update (for 127.0.0.1 at 2010-04-06 16:13:45) [PUT]
+  Parameters: {"commit"=>"Update", "bookmark"=>{"author"=>"sdf", "title"=>"abc", "url"=>"fsdf", "description"=>"sdf"}, "authenticity_token"=>"N84fkzVRhQai5v7m8sio0LeC/HQ1MDW6PENH97+8mvw=", "bookmark_tags"=>"123,2345", "id"=>"1"}
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+  [4;36;1mMarktags Delete all (166.8ms)[0m   [0;1mDELETE FROM "marktags" WHERE (bookmark_id = 1) [0m
+  [4;35;1mTags Load (0.4ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = '123') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = '123') LIMIT 1[0m
+  [4;35;1mMarktags Load (0.2ms)[0m   [0mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 5 AND "marktags".bookmark_id = 1) LIMIT 1[0m
+  [4;36;1mMarktags Create (0.3ms)[0m   [0;1mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:13:45', 5, '2010-04-06 21:13:45', 1)[0m
+  [4;35;1mTags Load (0.5ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = '2345') LIMIT 1[0m
+  [4;36;1mTags Load (0.4ms)[0m   [0;1mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = '2345') LIMIT 1[0m
+  [4;35;1mTags Create (0.6ms)[0m   [0mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('2345', '2010-04-06 21:13:45', '2010-04-06 21:13:45')[0m
+  [4;36;1mMarktags Load (0.4ms)[0m   [0;1mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 8 AND "marktags".bookmark_id = 1) LIMIT 1[0m
+  [4;35;1mMarktags Create (0.5ms)[0m   [0mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:13:45', 8, '2010-04-06 21:13:45', 1)[0m
+  [4;36;1mBookmark Load (0.2ms)[0m   [0;1mSELECT "bookmarks".id FROM "bookmarks" WHERE ("bookmarks"."url" = 'fsdf' AND "bookmarks".id <> 1) LIMIT 1[0m
+Redirected to http://localhost:3000/bookmarks/1
+Completed in 455ms (DB: 171) | 302 Found [http://localhost/bookmarks/1]
+
+
+Processing BookmarksController#show (for 127.0.0.1 at 2010-04-06 16:13:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBookmark Load (0.4ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/show
+Completed in 14ms (View: 4, DB: 0) | 200 OK [http://localhost/bookmarks/1]
+
+
+Processing BookmarksController#edit (for 127.0.0.1 at 2010-04-06 16:13:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mBookmark Load (0.3ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+  [4;35;1mMarktags Load (0.5ms)[0m   [0mSELECT * FROM "marktags" WHERE (bookmark_id = 1) [0m
+  [4;36;1mTags Load (0.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 5) [0m
+  [4;35;1mTags Load (0.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 8) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/edit
+Completed in 28ms (View: 7, DB: 1) | 200 OK [http://localhost/bookmarks/1/edit]
+/!\ FAILSAFE /!\  Tue Apr 06 16:22:42 -0500 2010
+  Status: 500 Internal Server Error
+  /home/djsynthe/ror/marktag/app/helpers/bookmarks_helper.rb:31: syntax error, unexpected $end, expecting kEND
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:380:in `load_file'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:379:in `load_file'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:224:in `depend_on'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:136:in `require_dependency'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/helpers.rb:126:in `helper'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/helpers.rb:115:in `each'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/helpers.rb:115:in `helper'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/helpers.rb:120:in `helper'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/helpers.rb:115:in `each'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/helpers.rb:115:in `helper'
+    /home/djsynthe/ror/marktag/app/controllers/application_controller.rb:5
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:380:in `load_file'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:379:in `load_file'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:80:in `const_missing'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:92:in `const_missing'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing BookmarksController#show (for 127.0.0.1 at 2010-04-06 16:23:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mBookmark Load (0.4ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/show
+Completed in 66ms (View: 3, DB: 0) | 200 OK [http://localhost/bookmarks/1]
+
+
+Processing BookmarksController#edit (for 127.0.0.1 at 2010-04-06 16:23:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBookmark Load (0.7ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+
+NoMethodError (undefined method `tags_to_string' for #<BookmarksController:0x7f753fa2de90>):
+  app/controllers/bookmarks_controller.rb:39:in `edit'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (32.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookmarksController#edit (for 127.0.0.1 at 2010-04-06 16:24:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mBookmark Load (0.4ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+
+NoMethodError (undefined method `tags_to_string' for #<BookmarksController:0x7fb6adb0af48>):
+  app/controllers/bookmarks_controller.rb:39:in `edit'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (32.6ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookmarksController#edit (for 127.0.0.1 at 2010-04-06 16:28:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+  [4;36;1mMarktags Load (0.5ms)[0m   [0;1mSELECT * FROM "marktags" WHERE (bookmark_id = 1) [0m
+  [4;35;1mTags Load (0.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 5) [0m
+  [4;36;1mTags Load (0.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 8) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/edit
+Completed in 108ms (View: 21, DB: 1) | 200 OK [http://localhost/bookmarks/1/edit]
+
+
+Processing BookmarksController#update (for 127.0.0.1 at 2010-04-06 16:28:06) [PUT]
+  Parameters: {"commit"=>"Update", "bookmark"=>{"author"=>"sdf", "title"=>"abc", "url"=>"fsdf", "description"=>"sdf"}, "authenticity_token"=>"N84fkzVRhQai5v7m8sio0LeC/HQ1MDW6PENH97+8mvw=", "bookmark_tags"=>"123,2345", "id"=>"1"}
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+  [4;36;1mMarktags Delete all (166.2ms)[0m   [0;1mDELETE FROM "marktags" WHERE (bookmark_id = 1) [0m
+  [4;35;1mTags Load (8.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = '123') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = '123') LIMIT 1[0m
+  [4;35;1mMarktags Load (0.4ms)[0m   [0mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 5 AND "marktags".bookmark_id = 1) LIMIT 1[0m
+  [4;36;1mMarktags Create (0.3ms)[0m   [0;1mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:28:06', 5, '2010-04-06 21:28:06', 1)[0m
+  [4;35;1mTags Load (0.8ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = '2345') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = '2345') LIMIT 1[0m
+  [4;35;1mMarktags Load (0.4ms)[0m   [0mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 8 AND "marktags".bookmark_id = 1) LIMIT 1[0m
+  [4;36;1mMarktags Create (0.6ms)[0m   [0;1mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:28:06', 8, '2010-04-06 21:28:06', 1)[0m
+  [4;35;1mBookmark Load (0.6ms)[0m   [0mSELECT "bookmarks".id FROM "bookmarks" WHERE ("bookmarks"."url" = 'fsdf' AND "bookmarks".id <> 1) LIMIT 1[0m
+
+TypeError (can't convert nil into String):
+  app/controllers/bookmarks_controller.rb:94:in `update'
+  app/controllers/bookmarks_controller.rb:92:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.3ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookmarksController#update (for 127.0.0.1 at 2010-04-06 16:28:48) [PUT]
+  Parameters: {"commit"=>"Update", "bookmark"=>{"author"=>"sdf", "title"=>"abc", "url"=>"fsdf", "description"=>"sdf"}, "authenticity_token"=>"N84fkzVRhQai5v7m8sio0LeC/HQ1MDW6PENH97+8mvw=", "bookmark_tags"=>"123,2345", "id"=>"1"}
+  [4;36;1mBookmark Load (0.3ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+  [4;35;1mMarktags Delete all (107.7ms)[0m   [0mDELETE FROM "marktags" WHERE (bookmark_id = 1) [0m
+  [4;36;1mTags Load (0.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = '123') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = '123') LIMIT 1[0m
+  [4;36;1mMarktags Load (0.2ms)[0m   [0;1mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 5 AND "marktags".bookmark_id = 1) LIMIT 1[0m
+  [4;35;1mMarktags Create (0.3ms)[0m   [0mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:28:48', 5, '2010-04-06 21:28:48', 1)[0m
+  [4;36;1mTags Load (0.8ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = '2345') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = '2345') LIMIT 1[0m
+  [4;36;1mMarktags Load (0.4ms)[0m   [0;1mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 8 AND "marktags".bookmark_id = 1) LIMIT 1[0m
+  [4;35;1mMarktags Create (0.5ms)[0m   [0mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:28:48', 8, '2010-04-06 21:28:48', 1)[0m
+  [4;36;1mBookmark Load (0.8ms)[0m   [0;1mSELECT "bookmarks".id FROM "bookmarks" WHERE ("bookmarks"."url" = 'fsdf' AND "bookmarks".id <> 1) LIMIT 1[0m
+Redirected to http://localhost:3000/bookmarks/1
+Completed in 404ms (DB: 111) | 302 Found [http://localhost/bookmarks/1]
+
+
+Processing BookmarksController#show (for 127.0.0.1 at 2010-04-06 16:28:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBookmark Load (0.6ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/show
+Completed in 19ms (View: 8, DB: 1) | 200 OK [http://localhost/bookmarks/1]
+
+
+Processing BookmarksController#edit (for 127.0.0.1 at 2010-04-06 16:28:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mBookmark Load (0.3ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+  [4;35;1mMarktags Load (0.4ms)[0m   [0mSELECT * FROM "marktags" WHERE (bookmark_id = 1) [0m
+  [4;36;1mTags Load (0.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 5) [0m
+  [4;35;1mTags Load (0.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 8) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/edit
+Completed in 29ms (View: 9, DB: 1) | 200 OK [http://localhost/bookmarks/1/edit]
+
+
+Processing BookmarksController#show (for 127.0.0.1 at 2010-04-06 16:30:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mBookmark Load (0.3ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/show
+  [4;35;1mMarktags Load (0.5ms)[0m   [0mSELECT * FROM "marktags" WHERE (bookmark_id = 1) [0m
+  [4;36;1mTags Load (0.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 5) [0m
+  [4;35;1mTags Load (0.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 8) [0m
+Completed in 31ms (View: 18, DB: 1) | 200 OK [http://localhost/bookmarks/1]
+
+
+Processing BookmarksController#index (for 127.0.0.1 at 2010-04-06 16:30:04) [GET]
+  [4;36;1mBookmark Load (0.6ms)[0m   [0;1mSELECT * FROM "bookmarks" [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/index
+Completed in 77ms (View: 13, DB: 1) | 200 OK [http://localhost/bookmarks]
+
+
+Processing BookmarksController#new (for 127.0.0.1 at 2010-04-06 16:33:24) [GET]
+Rendering template within layouts/bookmarks
+Rendering bookmarks/new
+Completed in 27ms (View: 11, DB: 0) | 200 OK [http://localhost/bookmarks/new]
+
+
+Processing BookmarksController#create (for 127.0.0.1 at 2010-04-06 16:33:38) [POST]
+  Parameters: {"commit"=>"Create", "bookmark"=>{"author"=>"3", "title"=>"fsfs2222", "url"=>"asd", "description"=>"333"}, "authenticity_token"=>"N84fkzVRhQai5v7m8sio0LeC/HQ1MDW6PENH97+8mvw=", "bookmark_tags"=>"a tag, goes, here"}
+  [4;35;1mMarktags Delete all (0.3ms)[0m   [0mDELETE FROM "marktags" WHERE (bookmark_id = NULL) [0m
+  [4;36;1mTags Load (0.2ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = 'a tag') LIMIT 1[0m
+  [4;35;1mTags Load (0.2ms)[0m   [0mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'a tag') LIMIT 1[0m
+  [4;36;1mTags Create (0.4ms)[0m   [0;1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('a tag', '2010-04-06 21:33:38', '2010-04-06 21:33:38')[0m
+  [4;35;1mMarktags Load (0.4ms)[0m   [0mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 9 AND "marktags".bookmark_id IS NULL) LIMIT 1[0m
+  [4;36;1mMarktags Create (0.6ms)[0m   [0;1mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:33:38', 9, '2010-04-06 21:33:38', NULL)[0m
+  [4;35;1mTags Load (0.4ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = ' goes') LIMIT 1[0m
+  [4;36;1mTags Load (0.4ms)[0m   [0;1mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = ' goes') LIMIT 1[0m
+  [4;35;1mTags Create (0.6ms)[0m   [0mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES(' goes', '2010-04-06 21:33:38', '2010-04-06 21:33:38')[0m
+  [4;36;1mMarktags Load (0.4ms)[0m   [0;1mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 10 AND "marktags".bookmark_id IS NULL) LIMIT 1[0m
+  [4;35;1mMarktags Create (0.6ms)[0m   [0mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:33:38', 10, '2010-04-06 21:33:38', NULL)[0m
+  [4;36;1mTags Load (0.6ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = ' here') LIMIT 1[0m
+  [4;35;1mTags Load (0.4ms)[0m   [0mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = ' here') LIMIT 1[0m
+  [4;36;1mTags Create (0.5ms)[0m   [0;1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES(' here', '2010-04-06 21:33:38', '2010-04-06 21:33:38')[0m
+  [4;35;1mMarktags Load (0.2ms)[0m   [0mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 11 AND "marktags".bookmark_id IS NULL) LIMIT 1[0m
+  [4;36;1mMarktags Create (0.3ms)[0m   [0;1mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:33:38', 11, '2010-04-06 21:33:38', NULL)[0m
+  [4;35;1mBookmark Load (0.2ms)[0m   [0mSELECT "bookmarks".id FROM "bookmarks" WHERE ("bookmarks"."url" = 'asd') LIMIT 1[0m
+  [4;36;1mBookmark Create (0.3ms)[0m   [0;1mINSERT INTO "bookmarks" ("created_at", "title", "author", "updated_at", "url", "description") VALUES('2010-04-06 21:33:38', 'fsfs2222', '3', '2010-04-06 21:33:38', 'asd', '333')[0m
+Redirected to http://localhost:3000/bookmarks/2
+Completed in 743ms (DB: 7) | 302 Found [http://localhost/bookmarks]
+
+
+Processing BookmarksController#show (for 127.0.0.1 at 2010-04-06 16:33:38) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mBookmark Load (0.4ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 2) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/show
+  [4;36;1mMarktags Load (0.5ms)[0m   [0;1mSELECT * FROM "marktags" WHERE (bookmark_id = 2) [0m
+Completed in 20ms (View: 11, DB: 1) | 200 OK [http://localhost/bookmarks/2]
+
+
+Processing BookmarksController#edit (for 127.0.0.1 at 2010-04-06 16:33:42) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 2) [0m
+
+NoMethodError (undefined method `tags_to_string' for #<BookmarksController:0x7fb6adf3dbb0>):
+  app/controllers/bookmarks_controller.rb:38:in `edit'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (31.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookmarksController#edit (for 127.0.0.1 at 2010-04-06 16:34:11) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mBookmark Load (0.3ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 2) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/edit
+  [4;35;1mMarktags Load (0.2ms)[0m   [0mSELECT * FROM "marktags" WHERE (bookmark_id = 2) [0m
+Completed in 28ms (View: 16, DB: 1) | 200 OK [http://localhost/bookmarks/2/edit]
+
+
+Processing BookmarksController#update (for 127.0.0.1 at 2010-04-06 16:34:19) [PUT]
+  Parameters: {"commit"=>"Update", "bookmark"=>{"author"=>"3", "title"=>"fsfs2222", "url"=>"asd", "description"=>"333"}, "authenticity_token"=>"N84fkzVRhQai5v7m8sio0LeC/HQ1MDW6PENH97+8mvw=", "bookmark_tags"=>"abc,123 ,456", "id"=>"2"}
+  [4;36;1mBookmark Load (0.4ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 2) [0m
+  [4;35;1mMarktags Delete all (0.6ms)[0m   [0mDELETE FROM "marktags" WHERE (bookmark_id = 2) [0m
+  [4;36;1mTags Load (0.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = 'abc') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = 'abc') LIMIT 1[0m
+  [4;36;1mMarktags Load (0.2ms)[0m   [0;1mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 4 AND "marktags".bookmark_id = 2) LIMIT 1[0m
+  [4;35;1mMarktags Create (0.2ms)[0m   [0mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:34:19', 4, '2010-04-06 21:34:19', 2)[0m
+  [4;36;1mTags Load (0.4ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = '123 ') LIMIT 1[0m
+  [4;35;1mTags Load (0.3ms)[0m   [0mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = '123 ') LIMIT 1[0m
+  [4;36;1mTags Create (0.5ms)[0m   [0;1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('123 ', '2010-04-06 21:34:19', '2010-04-06 21:34:19')[0m
+  [4;35;1mMarktags Load (0.4ms)[0m   [0mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 12 AND "marktags".bookmark_id = 2) LIMIT 1[0m
+  [4;36;1mMarktags Create (0.5ms)[0m   [0;1mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:34:19', 12, '2010-04-06 21:34:19', 2)[0m
+  [4;35;1mTags Load (0.4ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = '456') LIMIT 1[0m
+  [4;36;1mTags Load (0.3ms)[0m   [0;1mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = '456') LIMIT 1[0m
+  [4;35;1mTags Create (0.5ms)[0m   [0mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('456', '2010-04-06 21:34:19', '2010-04-06 21:34:19')[0m
+  [4;36;1mMarktags Load (0.4ms)[0m   [0;1mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 13 AND "marktags".bookmark_id = 2) LIMIT 1[0m
+  [4;35;1mMarktags Create (13.4ms)[0m   [0mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:34:19', 13, '2010-04-06 21:34:19', 2)[0m
+  [4;36;1mBookmark Load (0.4ms)[0m   [0;1mSELECT "bookmarks".id FROM "bookmarks" WHERE ("bookmarks"."url" = 'asd' AND "bookmarks".id <> 2) LIMIT 1[0m
+Redirected to http://localhost:3000/bookmarks/2
+Completed in 601ms (DB: 19) | 302 Found [http://localhost/bookmarks/2]
+
+
+Processing BookmarksController#show (for 127.0.0.1 at 2010-04-06 16:34:20) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 2) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/show
+  [4;36;1mMarktags Load (0.6ms)[0m   [0;1mSELECT * FROM "marktags" WHERE (bookmark_id = 2) [0m
+  [4;35;1mTags Load (0.4ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 4) [0m
+  [4;36;1mTags Load (0.4ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 12) [0m
+  [4;35;1mTags Load (0.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 13) [0m
+Completed in 33ms (View: 20, DB: 2) | 200 OK [http://localhost/bookmarks/2]
+
+
+Processing BookmarksController#edit (for 127.0.0.1 at 2010-04-06 16:34:22) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mBookmark Load (0.3ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 2) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/edit
+  [4;35;1mMarktags Load (0.5ms)[0m   [0mSELECT * FROM "marktags" WHERE (bookmark_id = 2) [0m
+  [4;36;1mTags Load (0.7ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 4) [0m
+  [4;35;1mTags Load (0.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 12) [0m
+  [4;36;1mTags Load (0.2ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 13) [0m
+Completed in 31ms (View: 20, DB: 2) | 200 OK [http://localhost/bookmarks/2/edit]
+
+
+Processing BookmarksController#index (for 127.0.0.1 at 2010-04-06 16:34:29) [GET]
+  [4;35;1mBookmark Load (0.8ms)[0m   [0mSELECT * FROM "bookmarks" [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/index
+Completed in 18ms (View: 11, DB: 1) | 200 OK [http://localhost/bookmarks]
+
+
+Processing BookmarksController#new (for 127.0.0.1 at 2010-04-06 16:34:32) [GET]
+Rendering template within layouts/bookmarks
+Rendering bookmarks/new
+Completed in 68ms (View: 61, DB: 0) | 200 OK [http://localhost/bookmarks/new]
+
+
+Processing BookmarksController#create (for 127.0.0.1 at 2010-04-06 16:35:19) [POST]
+  Parameters: {"commit"=>"Create", "bookmark"=>{"author"=>"222", "title"=>"abc22222", "url"=>"222", "description"=>"333"}, "authenticity_token"=>"N84fkzVRhQai5v7m8sio0LeC/HQ1MDW6PENH97+8mvw=", "bookmark_tags"=>"hi,there,mr,nerd"}
+  [4;36;1mBookmark Load (0.2ms)[0m   [0;1mSELECT "bookmarks".id FROM "bookmarks" WHERE ("bookmarks"."url" = '222') LIMIT 1[0m
+  [4;35;1mBookmark Create (0.3ms)[0m   [0mINSERT INTO "bookmarks" ("created_at", "title", "author", "updated_at", "url", "description") VALUES('2010-04-06 21:35:19', 'abc22222', '222', '2010-04-06 21:35:19', '222', '333')[0m
+  [4;36;1mMarktags Delete all (0.7ms)[0m   [0;1mDELETE FROM "marktags" WHERE (bookmark_id = 3) [0m
+  [4;35;1mTags Load (0.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = 'hi') LIMIT 1[0m
+  [4;36;1mTags Load (0.3ms)[0m   [0;1mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'hi') LIMIT 1[0m
+  [4;35;1mTags Create (0.3ms)[0m   [0mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('hi', '2010-04-06 21:35:19', '2010-04-06 21:35:19')[0m
+  [4;36;1mMarktags Load (0.4ms)[0m   [0;1mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 14 AND "marktags".bookmark_id = 3) LIMIT 1[0m
+  [4;35;1mMarktags Create (0.5ms)[0m   [0mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:35:19', 14, '2010-04-06 21:35:19', 3)[0m
+  [4;36;1mTags Load (0.4ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = 'there') LIMIT 1[0m
+  [4;35;1mTags Load (0.4ms)[0m   [0mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'there') LIMIT 1[0m
+  [4;36;1mTags Create (0.6ms)[0m   [0;1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('there', '2010-04-06 21:35:19', '2010-04-06 21:35:19')[0m
+  [4;35;1mMarktags Load (0.4ms)[0m   [0mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 15 AND "marktags".bookmark_id = 3) LIMIT 1[0m
+  [4;36;1mMarktags Create (0.5ms)[0m   [0;1mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:35:19', 15, '2010-04-06 21:35:19', 3)[0m
+  [4;35;1mTags Load (0.5ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = 'mr') LIMIT 1[0m
+  [4;36;1mTags Load (0.3ms)[0m   [0;1mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'mr') LIMIT 1[0m
+  [4;35;1mTags Create (0.5ms)[0m   [0mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('mr', '2010-04-06 21:35:19', '2010-04-06 21:35:19')[0m
+  [4;36;1mMarktags Load (0.4ms)[0m   [0;1mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 16 AND "marktags".bookmark_id = 3) LIMIT 1[0m
+  [4;35;1mMarktags Create (0.5ms)[0m   [0mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:35:19', 16, '2010-04-06 21:35:19', 3)[0m
+  [4;36;1mTags Load (0.5ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = 'nerd') LIMIT 1[0m
+  [4;35;1mTags Load (0.3ms)[0m   [0mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'nerd') LIMIT 1[0m
+  [4;36;1mTags Create (0.5ms)[0m   [0;1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('nerd', '2010-04-06 21:35:20', '2010-04-06 21:35:20')[0m
+  [4;35;1mMarktags Load (0.4ms)[0m   [0mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 17 AND "marktags".bookmark_id = 3) LIMIT 1[0m
+  [4;36;1mMarktags Create (0.5ms)[0m   [0;1mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-06 21:35:20', 17, '2010-04-06 21:35:20', 3)[0m
+Redirected to http://localhost:3000/bookmarks/3
+Completed in 956ms (DB: 9) | 302 Found [http://localhost/bookmarks]
+
+
+Processing BookmarksController#show (for 127.0.0.1 at 2010-04-06 16:35:20) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mBookmark Load (0.4ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 3) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/show
+  [4;36;1mMarktags Load (0.8ms)[0m   [0;1mSELECT * FROM "marktags" WHERE (bookmark_id = 3) [0m
+  [4;35;1mTags Load (0.4ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 14) [0m
+  [4;36;1mTags Load (1.1ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 15) [0m
+  [4;35;1mTags Load (0.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 16) [0m
+  [4;36;1mTags Load (0.4ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 17) [0m
+Completed in 33ms (View: 20, DB: 3) | 200 OK [http://localhost/bookmarks/3]
+
+
+Processing BookmarksController#index (for 127.0.0.1 at 2010-04-06 16:35:23) [GET]
+  [4;35;1mBookmark Load (0.7ms)[0m   [0mSELECT * FROM "bookmarks" [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/index
+Completed in 21ms (View: 13, DB: 1) | 200 OK [http://localhost/bookmarks]
+
+
+Processing BookmarksController#index (for 127.0.0.1 at 2010-04-06 16:36:03) [GET]
+  [4;36;1mBookmark Load (0.8ms)[0m   [0;1mSELECT * FROM "bookmarks" [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/index
+  [4;35;1mMarktags Load (0.6ms)[0m   [0mSELECT * FROM "marktags" WHERE (bookmark_id = 1) [0m
+  [4;36;1mTags Load (0.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 5) [0m
+  [4;35;1mTags Load (0.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 8) [0m
+  [4;36;1mMarktags Load (0.5ms)[0m   [0;1mSELECT * FROM "marktags" WHERE (bookmark_id = 2) [0m
+  [4;35;1mTags Load (0.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 4) [0m
+  [4;36;1mTags Load (0.2ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 12) [0m
+  [4;35;1mTags Load (0.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 13) [0m
+  [4;36;1mMarktags Load (0.6ms)[0m   [0;1mSELECT * FROM "marktags" WHERE (bookmark_id = 3) [0m
+  [4;35;1mTags Load (0.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 14) [0m
+  [4;36;1mTags Load (0.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 15) [0m
+  [4;35;1mTags Load (0.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 16) [0m
+  [4;36;1mTags Load (0.2ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 17) [0m
+Completed in 51ms (View: 40, DB: 5) | 200 OK [http://localhost/bookmarks]
