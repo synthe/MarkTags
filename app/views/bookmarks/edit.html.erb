@@ -20,6 +20,11 @@
     <%= f.text_field :author %>
   </p>
   <p>
+    <%= f.label "tags" %><br />
+    <%= f.text_field @tags %>
+  </p>
+  
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>

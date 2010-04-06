@@ -25,6 +25,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/new.xml
   def new
     @bookmark = Bookmark.new
+    
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1/edit
   def edit
     @bookmark = Bookmark.find(params[:id])
+    @tags = "some text - testing"
   end
 
   # POST /bookmarks
