@@ -14,6 +14,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1.xml
   def show
     @bookmark = Bookmark.find(params[:id])
+    @tags = @bookmark.tags.collect { |i| i.name }
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,14 +36,8 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1/edit
   def edit
     @bookmark = Bookmark.find(params[:id])
-    
-    #@association = Marktags.find(:all, :conditions => ["bookmark_id = ?",@bookmark.id])
-    #@tags = []
-    #@association.each do |assoc|
-    #  thistag = Tags.find(assoc.tag_id)
-    #  @tags.push thistag.name
-    #end
-    #@tags = @tags.join(",")
+    @tags = @bookmark.tags.collect { |i| i.name }
+
   end
 
   # POST /bookmarks
@@ -70,27 +65,12 @@ class BookmarksController < ApplicationController
   # PUT /bookmarks/1.xml
   def update
     @bookmark = Bookmark.find(params[:id])
+    @tags = @bookmark.tags.collect { |i| i.name }
 
     tagsString = params[:bookmark_tags]
-
+    #@bookmark.tags = commatags_to_array(tagsString)
+    
     save_tagstring_to_tags(tagsString, @bookmark.id)
-
-    #Marktags.delete_all(["bookmark_id = ?", @bookmark.id])
-    #if (tagsString.length > 0)
-    #  @tagsArr = tagsString.split(',');
-    #  @tagsArr.each do |tag|
-    #    if (Tags.find_by_name(tag))
-    #      @tagID = Tags.find_by_name(tag).id
-    #    else
-    #      @aTag = Tags.new(:name => tag)
-    #      @aTag.save
-    #      @tagID = @aTag.id
-    #    end
-    #    
-    #    Marktags.new(:bookmark_id => @bookmark.id, :tag_id => @tagID).save
-    #    
-    #  end
-    #end  
 
     respond_to do |format|
       if @bookmark.update_attributes(params[:bookmark])
@@ -117,4 +97,7 @@ class BookmarksController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  
+  
 end

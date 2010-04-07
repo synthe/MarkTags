@@ -1,0 +1,192 @@
+Unable to load marktag, underlying cause no such file to load -- marktag 
+
+ /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:158:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:265:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:224:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:136:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/unit/../test_helper.rb:35
+test/unit/bookmark_test.rb:1:in `require'
+test/unit/bookmark_test.rb:1
+Unable to load tag, underlying cause no such file to load -- tag 
+
+ /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:158:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:265:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:224:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:136:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/unit/../test_helper.rb:35
+test/unit/bookmark_test.rb:1:in `require'
+test/unit/bookmark_test.rb:1
+Unable to load marktag, underlying cause no such file to load -- marktag 
+
+ /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:158:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:265:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:224:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:136:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/unit/../test_helper.rb:35
+test/unit/bookmark_test.rb:1:in `require'
+test/unit/bookmark_test.rb:1
+Unable to load tag, underlying cause no such file to load -- tag 
+
+ /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:158:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:265:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:224:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:136:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/unit/../test_helper.rb:35
+test/unit/bookmark_test.rb:1:in `require'
+test/unit/bookmark_test.rb:1
+Unable to load marktag, underlying cause no such file to load -- marktag 
+
+ /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:158:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:265:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:224:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:136:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/unit/../test_helper.rb:35
+test/unit/bookmark_test.rb:1:in `require'
+test/unit/bookmark_test.rb:1
+Unable to load tag, underlying cause no such file to load -- tag 
+
+ /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:158:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:265:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:224:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:136:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/unit/../test_helper.rb:35
+test/unit/bookmark_test.rb:1:in `require'
+test/unit/bookmark_test.rb:1
+Unable to load marktag, underlying cause no such file to load -- marktag 
+
+ /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:158:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:265:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:224:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:136:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/unit/../test_helper.rb:35
+test/unit/bookmark_test.rb:1:in `require'
+test/unit/bookmark_test.rb:1
+Unable to load tag, underlying cause no such file to load -- tag 
+
+ /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:158:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:265:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:224:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:136:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/unit/../test_helper.rb:35
+test/unit/bookmark_test.rb:1:in `require'
+test/unit/bookmark_test.rb:1
+Unable to load marktag, underlying cause no such file to load -- marktag 
+
+ /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:158:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:265:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:224:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:136:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/unit/../test_helper.rb:35
+test/unit/bookmark_test.rb:1:in `require'
+test/unit/bookmark_test.rb:1
+Unable to load tag, underlying cause no such file to load -- tag 
+
+ /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:158:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:265:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:224:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:136:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/unit/../test_helper.rb:35
+test/unit/bookmark_test.rb:1:in `require'
+test/unit/bookmark_test.rb:1
+Unable to load marktag, underlying cause no such file to load -- marktag 
+
+ /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:158:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:265:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:224:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:136:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/unit/../test_helper.rb:35
+test/unit/bookmark_test.rb:1:in `require'
+test/unit/bookmark_test.rb:1
+Unable to load tag, underlying cause no such file to load -- tag 
+
+ /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:158:in `require'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:265:in `require_or_load'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:224:in `depend_on'
+/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:136:in `require_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `each'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/fixtures.rb:848:in `fixtures'
+./test/unit/../test_helper.rb:35
+test/unit/bookmark_test.rb:1:in `require'
+test/unit/bookmark_test.rb:1
