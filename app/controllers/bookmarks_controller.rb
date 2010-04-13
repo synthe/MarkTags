@@ -14,7 +14,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1.xml
   def show
     @bookmark = Bookmark.find(params[:id])
-    @tags = @bookmark.tags.collect { |i| i.name }
+    @tags = @bookmark.tags_string
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +36,6 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1/edit
   def edit
     @bookmark = Bookmark.find(params[:id])
-    @tags = @bookmark.tags.collect { |i| i.name }
 
   end
 
@@ -65,12 +64,11 @@ class BookmarksController < ApplicationController
   # PUT /bookmarks/1.xml
   def update
     @bookmark = Bookmark.find(params[:id])
-    @tags = @bookmark.tags.collect { |i| i.name }
 
     tagsString = params[:bookmark_tags]
     #@bookmark.tags = commatags_to_array(tagsString)
     
-    save_tagstring_to_tags(tagsString, @bookmark.id)
+    @bookmark.tags_string = tagsString
 
     respond_to do |format|
       if @bookmark.update_attributes(params[:bookmark])

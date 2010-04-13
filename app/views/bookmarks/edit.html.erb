@@ -22,7 +22,7 @@
   <p>
     <%= f.label "tags (separated by commas)" %><br />
     <input type="text" id="bookmark_tags"
-           name="bookmark_tags" value="<%= @tags.join(",") %>" size="50"/>
+           name="bookmark_tags" value="<%= @bookmark.tags_string %>" size="50"/>
   </p>
   
   <p>

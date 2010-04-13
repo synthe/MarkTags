@@ -5496,3 +5496,265 @@ Rendering rescues/layout (internal_server_error)
   [4;35;1mSQL (77.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100406183206')[0m
   [4;36;1mSQL (77.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100406181822')[0m
   [4;35;1mSQL (99.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100406182328')[0m
+
+
+Processing BookmarksController#index (for 127.0.0.1 at 2010-04-13 15:59:48) [GET]
+  [4;36;1mBookmark Load (0.9ms)[0m   [0;1mSELECT * FROM "bookmarks" [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/index
+
+ActionView::TemplateError (undefined method `tags_to_string' for #<ActionView::Base:0x7f18dd3241a8>) on line #18 of app/views/bookmarks/index.html.erb:
+15:     <td><%=h bookmark.description %></td>
+16:     <td><%=h bookmark.url %></td>
+17:     <td><%=h bookmark.author %></td>
+18:     <td><%=h tags_to_string(bookmark.id) %></td>
+19:     <td><%= link_to 'Show', bookmark %></td>
+20:     <td><%= link_to 'Edit', edit_bookmark_path(bookmark) %></td>
+21:     <td><%= link_to 'Destroy', bookmark, :confirm => 'Are you sure?', :method => :delete %></td>
+
+    app/views/bookmarks/index.html.erb:18
+    app/views/bookmarks/index.html.erb:12:in `each'
+    app/views/bookmarks/index.html.erb:12
+    app/controllers/bookmarks_controller.rb:7:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (105.0ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookmarksController#index (for 127.0.0.1 at 2010-04-13 16:00:33) [GET]
+  [4;35;1mBookmark Load (0.8ms)[0m   [0mSELECT * FROM "bookmarks" [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/index
+  [4;36;1mTag Load (1.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 1)) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 2)) [0m
+  [4;36;1mTag Load (0.5ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 3)) [0m
+Completed in 92ms (View: 81, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing BookmarksController#show (for 127.0.0.1 at 2010-04-13 16:02:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+  [4;36;1mTag Load (0.5ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 1)) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/show
+Completed in 78ms (View: 8, DB: 1) | 200 OK [http://localhost/bookmarks/1]
+
+
+Processing BookmarksController#edit (for 127.0.0.1 at 2010-04-13 16:03:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/edit
+Completed in 21ms (View: 13, DB: 0) | 200 OK [http://localhost/bookmarks/1/edit]
+
+
+Processing BookmarksController#edit (for 127.0.0.1 at 2010-04-13 16:03:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mBookmark Load (0.3ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/edit
+  [4;35;1mTag Load (0.7ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 1)) [0m
+Completed in 31ms (View: 23, DB: 1) | 200 OK [http://localhost/bookmarks/1/edit]
+
+
+Processing BookmarksController#update (for 127.0.0.1 at 2010-04-13 16:03:32) [PUT]
+  Parameters: {"commit"=>"Update", "bookmark"=>{"author"=>"sdf", "title"=>"abc", "url"=>"fsdf", "description"=>"sdf"}, "authenticity_token"=>"qXhB3hCys7QvZLCRfqIKTcUiUSHQAECjTQ0+sXZn4k0=", "bookmark_tags"=>"123,2345,hi mr bob,blahblah", "id"=>"1"}
+  [4;36;1mBookmark Load (0.3ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+
+NameError (uninitialized constant ApplicationController::Marktags):
+  app/controllers/application_controller.rb:32:in `save_tagstring_to_tags'
+  app/controllers/bookmarks_controller.rb:71:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (95.5ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookmarksController#update (for 127.0.0.1 at 2010-04-13 16:04:04) [PUT]
+  Parameters: {"commit"=>"Update", "bookmark"=>{"author"=>"sdf", "title"=>"abc", "url"=>"fsdf", "description"=>"sdf"}, "authenticity_token"=>"qXhB3hCys7QvZLCRfqIKTcUiUSHQAECjTQ0+sXZn4k0=", "bookmark_tags"=>"123,2345,hi mr bob,blahblah", "id"=>"1"}
+  [4;35;1mBookmark Load (0.4ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+
+NameError (uninitialized constant Bookmark::Marktags):
+  app/models/bookmark.rb:16:in `tags_string='
+  app/controllers/bookmarks_controller.rb:71:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (34.9ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookmarksController#update (for 127.0.0.1 at 2010-04-13 16:05:24) [PUT]
+  Parameters: {"commit"=>"Update", "bookmark"=>{"author"=>"sdf", "title"=>"abc", "url"=>"fsdf", "description"=>"sdf"}, "authenticity_token"=>"qXhB3hCys7QvZLCRfqIKTcUiUSHQAECjTQ0+sXZn4k0=", "bookmark_tags"=>"123,2345,hi mr bob,blahblah", "id"=>"1"}
+  [4;36;1mBookmark Load (0.5ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+
+NameError (uninitialized constant Bookmark::Marktags):
+  app/models/bookmark.rb:16:in `tags_string='
+  app/controllers/bookmarks_controller.rb:71:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (98.8ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookmarksController#update (for 127.0.0.1 at 2010-04-13 16:05:45) [PUT]
+  Parameters: {"commit"=>"Update", "bookmark"=>{"author"=>"sdf", "title"=>"abc", "url"=>"fsdf", "description"=>"sdf"}, "authenticity_token"=>"qXhB3hCys7QvZLCRfqIKTcUiUSHQAECjTQ0+sXZn4k0=", "bookmark_tags"=>"123,2345,hi mr bob,blahblah", "id"=>"1"}
+  [4;35;1mBookmark Load (0.6ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+
+NameError (uninitialized constant Bookmark::Tags):
+  app/models/bookmark.rb:24:in `tags_string='
+  app/models/bookmark.rb:20:in `each'
+  app/models/bookmark.rb:20:in `tags_string='
+  app/controllers/bookmarks_controller.rb:71:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (33.8ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookmarksController#update (for 127.0.0.1 at 2010-04-13 16:06:20) [PUT]
+  Parameters: {"commit"=>"Update", "bookmark"=>{"author"=>"sdf", "title"=>"abc", "url"=>"fsdf", "description"=>"sdf"}, "authenticity_token"=>"qXhB3hCys7QvZLCRfqIKTcUiUSHQAECjTQ0+sXZn4k0=", "bookmark_tags"=>"123,2345,hi mr bob,blahblah", "id"=>"1"}
+  [4;36;1mBookmark Load (0.4ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+
+NameError (uninitialized constant Bookmark::Marktags):
+  app/models/bookmark.rb:16:in `tags_string='
+  app/controllers/bookmarks_controller.rb:71:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (97.8ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookmarksController#update (for 127.0.0.1 at 2010-04-13 16:10:22) [PUT]
+  Parameters: {"commit"=>"Update", "bookmark"=>{"author"=>"sdf", "title"=>"abc", "url"=>"fsdf", "description"=>"sdf"}, "authenticity_token"=>"qXhB3hCys7QvZLCRfqIKTcUiUSHQAECjTQ0+sXZn4k0=", "bookmark_tags"=>"123,2345,hi mr bob,blahblah", "id"=>"1"}
+  [4;35;1mBookmark Load (0.4ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+
+NameError (uninitialized constant Bookmark::Tags):
+  app/models/bookmark.rb:25:in `tags_string='
+  app/models/bookmark.rb:21:in `each'
+  app/models/bookmark.rb:21:in `tags_string='
+  app/controllers/bookmarks_controller.rb:71:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (35.0ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookmarksController#update (for 127.0.0.1 at 2010-04-13 16:11:03) [PUT]
+  Parameters: {"commit"=>"Update", "bookmark"=>{"author"=>"sdf", "title"=>"abc", "url"=>"fsdf", "description"=>"sdf"}, "authenticity_token"=>"qXhB3hCys7QvZLCRfqIKTcUiUSHQAECjTQ0+sXZn4k0=", "bookmark_tags"=>"123,2345,hi mr bob,blahblah", "id"=>"1"}
+  [4;36;1mBookmark Load (0.4ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+
+NameError (uninitialized constant Bookmark::Tags):
+  app/models/bookmark.rb:25:in `tags_string='
+  app/models/bookmark.rb:21:in `each'
+  app/models/bookmark.rb:21:in `tags_string='
+  app/controllers/bookmarks_controller.rb:71:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (104.5ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookmarksController#update (for 127.0.0.1 at 2010-04-13 16:15:27) [PUT]
+  Parameters: {"commit"=>"Update", "bookmark"=>{"author"=>"sdf", "title"=>"abc", "url"=>"fsdf", "description"=>"sdf"}, "authenticity_token"=>"qXhB3hCys7QvZLCRfqIKTcUiUSHQAECjTQ0+sXZn4k0=", "bookmark_tags"=>"123,2345,hi mr bob,blahblah", "id"=>"1"}
+  [4;35;1mBookmark Load (0.4ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 1) [0m
+
+NameError (uninitialized constant Bookmark::Tags):
+  app/models/bookmark.rb:25:in `tags_string='
+  app/models/bookmark.rb:21:in `each'
+  app/models/bookmark.rb:21:in `tags_string='
+  app/controllers/bookmarks_controller.rb:71:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (34.5ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)

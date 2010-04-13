@@ -190,3 +190,63 @@ Unable to load tag, underlying cause no such file to load -- tag
 ./test/unit/../test_helper.rb:35
 test/unit/bookmark_test.rb:1:in `require'
 test/unit/bookmark_test.rb:1
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'test tag') LIMIT 1[0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'tag2') LIMIT 1[0m
+  [4;36;1mBookmark Load (0.2ms)[0m   [0;1mSELECT "bookmarks".id FROM "bookmarks" WHERE ("bookmarks"."url" = 'http://blah') LIMIT 1[0m
+  [4;35;1mBookmark Create (0.3ms)[0m   [0mINSERT INTO "bookmarks" ("created_at", "title", "author", "updated_at", "url", "description") VALUES('2010-04-13 21:22:34', 'test title', NULL, '2010-04-13 21:22:34', 'http://blah', NULL)[0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'test tag') LIMIT 1[0m
+  [4;35;1mTag Create (0.2ms)[0m   [0mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('test tag', '2010-04-13 21:22:34', '2010-04-13 21:22:34')[0m
+  [4;36;1mMarktag Load (0.2ms)[0m   [0;1mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 1 AND "marktags".bookmark_id = 980190963) LIMIT 1[0m
+  [4;35;1mMarktag Create (0.2ms)[0m   [0mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-13 21:22:34', 1, '2010-04-13 21:22:34', 980190963)[0m
+  [4;36;1mTag Load (0.1ms)[0m   [0;1mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'tag2') LIMIT 1[0m
+  [4;35;1mTag Create (0.1ms)[0m   [0mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('tag2', '2010-04-13 21:22:34', '2010-04-13 21:22:34')[0m
+  [4;36;1mMarktag Load (0.1ms)[0m   [0;1mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 2 AND "marktags".bookmark_id = 980190963) LIMIT 1[0m
+  [4;35;1mMarktag Create (0.1ms)[0m   [0mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-13 21:22:34', 2, '2010-04-13 21:22:34', 980190963)[0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'test tag') LIMIT 1[0m
+  [4;35;1mTag Load (0.1ms)[0m   [0mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'tag2') LIMIT 1[0m
+  [4;36;1mBookmark Load (0.1ms)[0m   [0;1mSELECT "bookmarks".id FROM "bookmarks" WHERE ("bookmarks"."url" = 'http://blah') LIMIT 1[0m
+  [4;35;1mBookmark Create (0.2ms)[0m   [0mINSERT INTO "bookmarks" ("created_at", "title", "author", "updated_at", "url", "description") VALUES('2010-04-13 21:23:10', 'test title', NULL, '2010-04-13 21:23:10', 'http://blah', NULL)[0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'test tag') LIMIT 1[0m
+  [4;35;1mTag Create (0.1ms)[0m   [0mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('test tag', '2010-04-13 21:23:10', '2010-04-13 21:23:10')[0m
+  [4;36;1mMarktag Load (0.2ms)[0m   [0;1mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 1 AND "marktags".bookmark_id = 980190963) LIMIT 1[0m
+  [4;35;1mMarktag Create (0.2ms)[0m   [0mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-13 21:23:10', 1, '2010-04-13 21:23:10', 980190963)[0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'tag2') LIMIT 1[0m
+  [4;35;1mTag Create (0.2ms)[0m   [0mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('tag2', '2010-04-13 21:23:10', '2010-04-13 21:23:10')[0m
+  [4;36;1mMarktag Load (0.2ms)[0m   [0;1mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 2 AND "marktags".bookmark_id = 980190963) LIMIT 1[0m
+  [4;35;1mMarktag Create (0.1ms)[0m   [0mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-13 21:23:10', 2, '2010-04-13 21:23:10', 980190963)[0m
+  [4;36;1mBookmark Load (0.3ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 980190963) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 980190963)) [0m
+  [4;36;1mBookmark Load (0.4ms)[0m   [0;1mSELECT "bookmarks".id FROM "bookmarks" WHERE ("bookmarks"."url" = 'http://blah') LIMIT 1[0m
+  [4;35;1mBookmark Create (0.2ms)[0m   [0mINSERT INTO "bookmarks" ("created_at", "title", "author", "updated_at", "url", "description") VALUES('2010-04-13 21:24:51', 'test title', NULL, '2010-04-13 21:24:51', 'http://blah', NULL)[0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 980190963)) [0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'test tag') LIMIT 1[0m
+  [4;36;1mTag Load (0.1ms)[0m   [0;1mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'tag2') LIMIT 1[0m
+  [4;35;1mBookmark Load (0.1ms)[0m   [0mSELECT "bookmarks".id FROM "bookmarks" WHERE ("bookmarks"."url" = 'http://blah') LIMIT 1[0m
+  [4;36;1mBookmark Create (0.2ms)[0m   [0;1mINSERT INTO "bookmarks" ("created_at", "title", "author", "updated_at", "url", "description") VALUES('2010-04-13 21:24:51', 'test title', NULL, '2010-04-13 21:24:51', 'http://blah', NULL)[0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'test tag') LIMIT 1[0m
+  [4;36;1mTag Create (0.2ms)[0m   [0;1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('test tag', '2010-04-13 21:24:51', '2010-04-13 21:24:51')[0m
+  [4;35;1mMarktag Load (0.2ms)[0m   [0mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 1 AND "marktags".bookmark_id = 980190963) LIMIT 1[0m
+  [4;36;1mMarktag Create (0.2ms)[0m   [0;1mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-13 21:24:51', 1, '2010-04-13 21:24:51', 980190963)[0m
+  [4;35;1mTag Load (0.1ms)[0m   [0mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'tag2') LIMIT 1[0m
+  [4;36;1mTag Create (0.2ms)[0m   [0;1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('tag2', '2010-04-13 21:24:51', '2010-04-13 21:24:51')[0m
+  [4;35;1mMarktag Load (0.1ms)[0m   [0mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 2 AND "marktags".bookmark_id = 980190963) LIMIT 1[0m
+  [4;36;1mMarktag Create (0.2ms)[0m   [0;1mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-13 21:24:51', 2, '2010-04-13 21:24:51', 980190963)[0m
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 980190963) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 980190963)) [0m
+  [4;36;1mBookmark Load (0.4ms)[0m   [0;1mSELECT "bookmarks".id FROM "bookmarks" WHERE ("bookmarks"."url" = 'http://blah') LIMIT 1[0m
+  [4;35;1mBookmark Create (0.5ms)[0m   [0mINSERT INTO "bookmarks" ("created_at", "title", "author", "updated_at", "url", "description") VALUES('2010-04-13 21:25:39', 'test title', NULL, '2010-04-13 21:25:39', 'http://blah', NULL)[0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 980190963)) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'test tag') LIMIT 1[0m
+  [4;36;1mTag Load (0.1ms)[0m   [0;1mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'tag2') LIMIT 1[0m
+  [4;35;1mBookmark Load (0.1ms)[0m   [0mSELECT "bookmarks".id FROM "bookmarks" WHERE ("bookmarks"."url" = 'http://blah') LIMIT 1[0m
+  [4;36;1mBookmark Create (0.3ms)[0m   [0;1mINSERT INTO "bookmarks" ("created_at", "title", "author", "updated_at", "url", "description") VALUES('2010-04-13 21:25:39', 'test title', NULL, '2010-04-13 21:25:39', 'http://blah', NULL)[0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'test tag') LIMIT 1[0m
+  [4;36;1mTag Create (0.2ms)[0m   [0;1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('test tag', '2010-04-13 21:25:39', '2010-04-13 21:25:39')[0m
+  [4;35;1mMarktag Load (0.2ms)[0m   [0mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 1 AND "marktags".bookmark_id = 980190963) LIMIT 1[0m
+  [4;36;1mMarktag Create (0.2ms)[0m   [0;1mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-13 21:25:39', 1, '2010-04-13 21:25:39', 980190963)[0m
+  [4;35;1mTag Load (0.1ms)[0m   [0mSELECT "tags".id FROM "tags" WHERE ("tags"."name" = 'tag2') LIMIT 1[0m
+  [4;36;1mTag Create (0.1ms)[0m   [0;1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('tag2', '2010-04-13 21:25:39', '2010-04-13 21:25:39')[0m
+  [4;35;1mMarktag Load (0.1ms)[0m   [0mSELECT "marktags".id FROM "marktags" WHERE ("marktags"."tag_id" = 2 AND "marktags".bookmark_id = 980190963) LIMIT 1[0m
+  [4;36;1mMarktag Create (0.1ms)[0m   [0;1mINSERT INTO "marktags" ("created_at", "tag_id", "updated_at", "bookmark_id") VALUES('2010-04-13 21:25:39', 2, '2010-04-13 21:25:39', 980190963)[0m
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 980190963) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 980190963)) [0m
