@@ -12,12 +12,7 @@ class Bookmark < ActiveRecord::Base
   
   #setting tags based off of tags string
   def tags_string=(commastring)
-    #need to fix this beotch up to be sexier
-    #Marktags.delete_all(["bookmark_id = ?", id])
-    #self.tags = []
-
-    #lets see what tags is right out of the bat
-    puts YAML::dump(tags)
+    self.tags.clear
     
     if (commastring.length > 0)
       tagsArr = commastring.split(',');
@@ -25,17 +20,15 @@ class Bookmark < ActiveRecord::Base
         # remove white space
         tagname = tagname.strip
         
-        tags << Tags.new(:name => tagname)
         
-        #if (Tags.find_by_name(tag))
-        #  tagID = Tags.find_by_name(tag).id
-        #else
-        #  aTag = Tags.new(:name => tag)
-        #  aTag.save
-        #  tagID = aTag.id
-        #end
+        if (Tag.find_by_name(tagname))
+          aTag = Tag.find_by_name(tagname)
+        else
+          aTag = Tag.new(:name => tagname)
+          aTag.save
+        end
         
-        #Marktags.new(:bookmark_id => bookmarkid, :tag_id => tagID).save
+        self.tags << aTag
       end
     end    
     

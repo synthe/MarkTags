@@ -1,9 +1,9 @@
 <h1>Tags</h1>
 <ul>
 <% @tags.each do |tag| %>
-  <li><% tag %></li>
-
-
+  <li style="font-size: <%= ((tag.bookmarks.count * @sizeModifier) + 1) %>em;">
+    <%= tag.name %> (<%= tag.bookmarks.count %>)
+  </li>
 <% end %>
 </ul>
 <br />
