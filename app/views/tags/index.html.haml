@@ -1,0 +1,8 @@
+= link_to "To Bookmarks", :controller => "bookmarks"
+%h1 Tags
+%ul
+  - @tags.each do |tag|
+    - size = (tag.bookmarks.count * @sizeModifier) + @additive
+    %li{:style => "font-size: #{size}em"}
+      = link_to tag.name+" ("+tag.bookmarks.count.to_s+")", :controller => "tags", :action => "show", :id => tag.id
+

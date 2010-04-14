@@ -48,7 +48,7 @@ class BookmarksController < ApplicationController
     respond_to do |format|
       if @bookmark.save
         tagsString = params[:bookmark_tags]
-        save_tagstring_to_tags(tagsString, @bookmark.id)
+        @bookmark.tags_string = tagsString
 
         flash[:notice] = 'Bookmark was successfully created.'
         format.html { redirect_to(@bookmark) }
@@ -66,8 +66,6 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
 
     tagsString = params[:bookmark_tags]
-    #@bookmark.tags = commatags_to_array(tagsString)
-    
     @bookmark.tags_string = tagsString
 
     respond_to do |format|
@@ -88,8 +86,6 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
     
-    Marktags.delete_all(["bookmark_id = ?", params[:id]])
-
     respond_to do |format|
       format.html { redirect_to(bookmarks_url) }
       format.xml  { head :ok }

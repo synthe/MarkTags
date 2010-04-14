@@ -2,8 +2,16 @@ class Bookmark < ActiveRecord::Base
   has_many :marktags
   has_many :tags, :through => :marktags
   
+  before_save :url_prefix
+
   validates_presence_of :title
   validates_uniqueness_of :url
+  
+  def url_prefix
+    if (self.url.index("http://") != 0 && self.url.index("https://") != 0)
+      self.url.insert(0, "http://")
+    end
+  end
   
   def tags_string
     tagsArr = tags.collect { |i| i.name }
@@ -20,7 +28,6 @@ class Bookmark < ActiveRecord::Base
         # remove white space
         tagname = tagname.strip
         
-        
         if (Tag.find_by_name(tagname))
           aTag = Tag.find_by_name(tagname)
         else
@@ -30,7 +37,8 @@ class Bookmark < ActiveRecord::Base
         
         self.tags << aTag
       end
-    end    
+    end
     
+    Tag.clear_unused
   end
 end

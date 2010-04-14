@@ -1,4 +1,12 @@
-<h3></h3>
+<h3>Tag: <%= @tag.name %></h3>
+
+<h5>Bookmarks</h5>
+<ul>
+  <% @tag.bookmarks.each do |bookmark| %>
+    <li><a href="<%= bookmark.url %>"><%= bookmark.title %></a></li>
+  
+  <% end %>
+</ul>
 
 
-<%= link_to 'Back', bookmarks_path %>
+<%= link_to 'Back', tags_path %>
