@@ -28,4 +28,13 @@ class TagsController < ApplicationController
   def show
     @tag = Tag.find(params[:id])
   end
+  
+  def search
+    @tags = Tag.find :all, :conditions => ["name like ?", "%#{params[:q]}%"]
+    
+    respond_to do |format|
+      format.html # search.html.erb
+      format.json  { render :layout => false, :json => @tags.to_json }
+    end
+  end
 end
