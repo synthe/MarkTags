@@ -13286,3 +13286,146 @@ Processing BookmarksController#show (for 127.0.0.1 at 2010-04-17 11:51:19) [GET]
 Rendering template within layouts/bookmarks
 Rendering bookmarks/show
 Completed in 47ms (View: 25, DB: 1) | 200 OK [http://localhost/bookmarks/2]
+
+
+Processing BookmarksController#index (for 127.0.0.1 at 2010-04-17 12:55:11) [GET]
+  [4;36;1mBookmark Load (1.0ms)[0m   [0;1mSELECT * FROM "bookmarks" [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/index
+  [4;35;1mTag Load (0.5ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 2)) [0m
+  [4;36;1mTag Load (0.5ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 3)) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 4)) [0m
+  [4;36;1mTag Load (0.5ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 5)) [0m
+Completed in 200ms (View: 156, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing TagsController#show (for 127.0.0.1 at 2010-04-17 12:55:29) [GET]
+  Parameters: {"id"=>"search"}
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Tag with ID=search):
+  app/controllers/tags_controller.rb:29:in `show'
+  haml (2.2.23) rails/./lib/sass/plugin/rails.rb:20:in `process'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (36.1ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing TagsController#search (for 127.0.0.1 at 2010-04-17 12:55:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTag Load (1.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE (name like '%%') [0m
+Rendering tags/search
+Completed in 17ms (View: 9, DB: 1) | 200 OK [http://localhost/tags/search/1]
+
+
+Processing TagsController#search (for 127.0.0.1 at 2010-04-17 13:02:41) [GET]
+  [4;35;1mTag Load (1.0ms)[0m   [0mSELECT * FROM "tags" WHERE (name like '%%') [0m
+Rendering tags/search
+Completed in 11ms (View: 3, DB: 1) | 200 OK [http://localhost/tags/search]
+
+
+Processing BookmarksController#index (for 127.0.0.1 at 2010-04-17 13:08:39) [GET]
+  [4;36;1mBookmark Load (0.9ms)[0m   [0;1mSELECT * FROM "bookmarks" [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/index
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 2)) [0m
+  [4;36;1mTag Load (0.5ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 3)) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 4)) [0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 5)) [0m
+Completed in 45ms (View: 34, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing BookmarksController#edit (for 127.0.0.1 at 2010-04-17 13:08:43) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" = 2) [0m
+Rendering template within layouts/bookmarks
+Rendering bookmarks/edit
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "marktags" ON "tags".id = "marktags".tag_id WHERE (("marktags".bookmark_id = 2)) [0m
+Completed in 34ms (View: 24, DB: 1) | 200 OK [http://localhost/bookmarks/2/edit]
+
+
+Processing TagsController#search (for 127.0.0.1 at 2010-04-17 13:08:48) [GET]
+  Parameters: {"timestamp"=>"1271527728270", "q"=>"blo", "limit"=>"10"}
+  [4;35;1mTag Load (0.6ms)[0m   [0mSELECT * FROM "tags" WHERE (name like '%blo%') [0m
+Rendering tags/search
+Completed in 14ms (View: 3, DB: 1) | 200 OK [http://localhost/tags/search/?q=blo&limit=10&timestamp=1271527728270]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-17 13:08:48) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/indicator.gif" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TagsController#search (for 127.0.0.1 at 2010-04-17 13:08:55) [GET]
+  Parameters: {"timestamp"=>"1271527735753", "q"=>"des", "limit"=>"10"}
+  [4;36;1mTag Load (0.6ms)[0m   [0;1mSELECT * FROM "tags" WHERE (name like '%des%') [0m
+Rendering tags/search
+Completed in 10ms (View: 2, DB: 1) | 200 OK [http://localhost/tags/search/?q=des&limit=10&timestamp=1271527735753]
+
+
+Processing TagsController#index (for 127.0.0.1 at 2010-04-17 13:09:25) [GET]
+  [4;35;1mTag Load (1.0ms)[0m   [0mSELECT * FROM "tags" [0m
+  [4;36;1mMarktag Load (1.2ms)[0m   [0;1mSELECT "marktags".* FROM "marktags" WHERE ("marktags".tag_id IN (2,3,4,5,6,7,8,9)) [0m
+  [4;35;1mBookmark Load (0.6ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks"."id" IN (2,3,4,5)) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 6)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 2)) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 9)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 6)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 9)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 2)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 2)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 8)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 2)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 7)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 2)) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 2)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 3)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 2)) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 4)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 5)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 6)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 6)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 6)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 9)) [0m
+Rendering tags/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 6)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 6)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 5)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 2)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 2)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 3)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 3)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 4)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 4)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 7)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 7)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 8)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 8)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 9)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "bookmarks" INNER JOIN "marktags" ON "bookmarks".id = "marktags".bookmark_id WHERE (("marktags".tag_id = 9)) [0m
+Completed in 60ms (View: 18, DB: 5) | 200 OK [http://localhost/tags]

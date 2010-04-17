@@ -1,5 +1,5 @@
 $(document).ready(function() {
-   $('#bookmark_tags').autocomplete('/tags/search/1/', {
+   $('#bookmark_tags').autocomplete('/tags/search/', {
         width: 320,
         max: 10,
         highlight: false,

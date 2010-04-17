@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :bookmarks
-  map.resources :tags
+  map.resources :tags, :collection => { :search => :get }
 
   # The priority is based upon order of creation: first created -> highest priority.
 
