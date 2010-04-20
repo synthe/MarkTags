@@ -4,16 +4,19 @@ class TagsController < ApplicationController
     minSize = 1
     maxSize = 3
     
-    tags = Tag.all(:include => :bookmarks)
-    @tags = tags.sort! { |a,b| b.bookmarks.count <=> a.bookmarks.count }
-    if (@tags.count > 0 && @tags[0].bookmarks.count > 0) 
-      maxCount = @tags[0].bookmarks.count
+    tags = Tag.find(:all, :joins => :marktags, :group => :tag_id, :select => "tags.*, count(tag_id) AS bookcount")
+    tags.each do |tag|
+      tag.bookcount = tag.bookcount.to_i
+    end
+    @tags = tags.sort! { |a,b| b.bookcount <=> a.bookcount }
+    if (@tags.count > 0 && @tags[0].bookcount > 0) 
+      maxCount = @tags[0].bookcount
       @sizeModifier = ((maxSize - minSize) / (maxCount.to_f));
     else
       @sizeModifier = 0;
     end
     
-    minCount = @tags[@tags.length-1].bookmarks.count
+    minCount = @tags[@tags.length-1].bookcount
     if (minCount < 1)
       minCount = 1
     end
@@ -33,7 +36,7 @@ class TagsController < ApplicationController
     @tags = Tag.find :all, :conditions => ["name like ?", "%#{params[:q]}%"]
     
     respond_to do |format|
-      format.html # search.html.erb
+      format.html { render :layout => false }# search.html.erb
       format.json  { render :layout => false, :json => @tags.to_json }
     end
   end

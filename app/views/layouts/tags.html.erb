@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Bookmarks: <%= controller.action_name %></title>
+  <title>Tags: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
@@ -11,7 +11,7 @@
 <p class="flashbox"><%= flash[:notice] %></p>
 <div class="header_bar">
   <span>MarkTags</span>
-  <%= link_to "To Tags", :controller => "tags" %>
+  <%= link_to "To Bookmarks", :controller => "bookmarks" %>
 </div>
 
 <%= yield %>

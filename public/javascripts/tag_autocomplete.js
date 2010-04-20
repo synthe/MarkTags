@@ -1,7 +1,7 @@
 $(document).ready(function() {
    $('#bookmark_tags').autocomplete('/tags/search/', {
         width: 320,
-        max: 10,
+        max: 20,
         highlight: false,
         multiple: true,
         multipleSeparator: ",",
