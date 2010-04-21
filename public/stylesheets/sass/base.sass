@@ -1,0 +1,66 @@
+html, body
+  :margin 0
+  :padding 0
+  
+body
+  :background-color #fff
+  :color #333
+  :font-family arial, helvetica, sans-serif
+  :font-size 13px
+  
+a
+  &:visited
+    :color #444
+  &:hover
+    :color #fff
+    :background-color #557
+
+textarea
+  :height 12em
+
+h1
+  :text-align center
+  :font-variant small-caps
+  :margin 4px 0
+
+.header_bar
+  :background-color #557
+  :color #fff
+  :margin 0 20px
+  +roundBot("10px")
+  a
+    :color #fff
+    :background-color transparent
+    :vertical-align text-top
+    &:hover
+      :text-shadow 1px 1px 2px #000
+  span
+    :font-size 19px
+    :letter-spacing 0.3em
+    :padding 3px 20px 3px 25px
+    :display inline-block
+    :font-weight bold
+
+.centered
+  :text-align center
+  
+.page_button
+  :border 1px solid #bbb
+  :background-color #ddd
+  :font-weight bold
+  :display inline-block
+  :margin 5px
+  :cursor pointer
+  +roundAll("4px")
+
+input.page_button, .page_button a
+  :display inline-block
+  :padding 0.2em 0.4em
+  :text-decoration none
+  +roundAll("4px")
+  +boxShadow("inset 0 3px 3px -1px #fff")
+
+input.page_button:hover, .page_button a:hover
+  :background-color #ddf
+  :color #333
+  +boxShadow("0 0 4px #36c")
